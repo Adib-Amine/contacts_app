@@ -22,7 +22,9 @@ environment:
 
 dependencies:
   bloc:
+  get_it:
   flutter_bloc:
+  hexcolor: ^2.0.3
   flutter:
     sdk: flutter
 
