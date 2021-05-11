@@ -24,17 +24,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) =>
-            ContactsBloc(
-              initialState:ContactsState(
-                  contacts: [],
-                  errorMessage: '',
-                  requestState: RequestState.NONE),
-              contactsRepository : GetIt.instance<ContactsRepository>(),
-            ),
+        BlocProvider(
+          create: (context) => ContactsBloc(
+            initialState: ContactsState(
+                contacts: [],
+                errorMessage: '',
+                requestState: RequestState.NONE),
+            contactsRepository: GetIt.instance<ContactsRepository>(),
+          ),
         ),
-        BlocProvider(create: (context) =>MessageBloc(initialState: MessagesState.initialState(),
-            messageRepo: GetIt.instance<MessageRepo>()))
+        BlocProvider(
+            create: (context) => MessageBloc(
+                initialState: MessagesState.initialState(),
+                messageRepo: GetIt.instance<MessageRepo>()))
       ],
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.deepOrange),
